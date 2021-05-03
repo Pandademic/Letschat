@@ -1,0 +1,9 @@
+body{
+    background-image: url(background.png);/*TODO:create a background */
+}
+.login{
+    color: gray;
+    border-radius: 20px;
+    border-width:.5px;
+    
+}
