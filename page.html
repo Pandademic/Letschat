@@ -1,8 +1,30 @@
 <html>
     <head>
         <script src="chat.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet"href="page.css">
     </head>
     <body onload="findName()">
-        <h1 id="404">404 Error:This page does not exist</h1>
+     <center>
+        <h1 id="welcome"></h1>
+            <hr>
+        <div class="conT">
+            <h3>Trending rooms</h3>
+            <h5 class="alert">*THEY START WITH THE PREFIX #*</h5>
+            <div id="list">
+                <p class="stand-out">
+                    #random room
+                    <br>
+                    #another room
+                    <br>
+                    #example 
+                    <br>
+                    #You get it already
+                </p>
+            </div>
+        </div>
+    </center>
     </body>
 </html>

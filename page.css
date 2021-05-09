@@ -1,0 +1,16 @@
+body{
+    background-image: url(background.png);
+    color: cornflowerblue;
+
+}
+.conT{
+    background-color: burlywood;
+    color: fuchsia;    
+}
+.alert{
+    color: red;
+    background-color: aliceblue;
+}
+.stand-out{
+    color:white;
+}
