@@ -1,8 +1,41 @@
 <html>
     <head>
-        <script src="chat.js"></script>
+        <title>CHOOSE A ROOM OR ELSE</title>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+        <script src="page.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        
+        
+        <link rel="stylesheet"href="page.css">
     </head>
-    <body onload="findName()">
-        <h1 id="404">404 Error:This page does not exist</h1>
+    <body onload="getData()">
+     <center>
+       
+        <br>
+        <button onclick="logOut()"class="logout">Logout</button>
+        <style>
+            .logout{
+                background-color: red;
+            }
+        </style>
+        <hr>
+        <div class="conT">
+            <h3>Trending rooms</h3>
+            <input id="roomname"type="text"placeholder="room Name">
+            <button onclick="RoomDisplay()">Show my room</button>
+            <br>
+            <button onclick="redirectToRoomName()">submit</button>
+            <h5 class="alert">*THEY START WITH THE PREFIX #*</h5>
+            <div id="list">
+                
+            </div>
+        </div>
+        
+    
+    </center>
     </body>
 </html>

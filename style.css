@@ -1,9 +1,23 @@
 body{
-    background-image: url(background.png);/*TODO:create a background */
+    background-image: url(https://earthsky.org/upl/2020/02/galaxy-clusters.jpg);/*TODO:create a background */
+    color:#fff;
 }
 .login{
     color: gray;
     border-radius: 20px;
     border-width:.5px;
     
+}
+#chat{
+    color: aqua;
+    background-color: antiquewhite;
+    height: 500;
+    width: 500;
+}
+.spacer{
+    width: 500;
+}
+#logout{
+    color: #fff;
+    background-color: red;
 }

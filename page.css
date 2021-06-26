@@ -1,0 +1,18 @@
+body{
+    background-image: url(https://earthsky.org/upl/2020/02/galaxy-clusters.jpg);
+    color: cornflowerblue;
+
+}
+.conT{
+    background-color: burlywood;
+    color: #fff;
+    height: 800; 
+    width: 500;    
+}
+.alert{
+    color: red;
+    background-color: burlywood;
+}
+input{
+    color:rgb(21, 1, 44)
+}
