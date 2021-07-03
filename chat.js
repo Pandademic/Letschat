@@ -16,10 +16,10 @@ var room_name;
 var message;
 var like;
 var MsgToDisplay;
-Username=localStorage.getItem("UserName")
+Username=localStorage.getItem("UserName");
 console.log("Username="+Username);  
 function logout(){
-    window.location="login.html"
+    window.location="login.html";
 }
 function setItems(){
     console.log("started.....")
@@ -30,14 +30,14 @@ function setItems(){
 }
 
 function logout(){
-    localStorage.removeItem("UserName")
+    localStorage.removeItem("UserName");
     window.location="login.html";
 }
 function send(){
     MsgValue=document.getElementById("msgVal").value;
     console.log("MSGValue="+MsgValue);
     Msg= Username+" says :"+MsgValue;
-    console.log(Msg)
+    console.log(Msg);
     firebase.database().ref(room_name).push({
         message:Msg,
         like:0
