@@ -2,7 +2,6 @@
     <head>
         <title>CHOOSE A ROOM OR ELSE</title>
         <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
         <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
         <script src="page.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -26,10 +25,10 @@
         <div class="conT">
             <h3>Trending rooms</h3>
             <input id="roomname"type="text"placeholder="room Name">
-            <button onclick="RoomDisplay()">Show my room</button>
+            <!--<button onclick="RoomDisplay()">Show my room</button>-->
             <br>
             <button onclick="redirectToRoomName()">submit</button>
-            <h5 class="alert">*THEY START WITH THE PREFIX #*</h5>
+            <h5 class="alert">*THEY START WITH THE PREFIX #</h5>
             <div id="list">
                 
             </div>

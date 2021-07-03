@@ -23,6 +23,7 @@ room_name=document.getElementById("roomname").value;
 console.log("Room Name:"+room_name);
 }
 function redirectToRoomName(){
+   RoomDisplay()
    console.log(room_name);
    localStorage.setItem("room_name",room_name);
    firebase.database().ref("/").child(room_name).update({
@@ -49,11 +50,11 @@ document.getElementById("list").innerHTML+=row;
 
 //End code
 });});}
-/*getData();
-function redirectToRoomName(name){
+getData();
+/*function redirectToRoomName(name){
 console.log(name);
 localStorage.setItem("room_name",name);
-window.localStorage="kwitter_page.html";
+window.localStorage="chatPage.html";
 }
 function logOut(){
 localStorage.removeItem("UserName");
