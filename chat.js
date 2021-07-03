@@ -11,11 +11,12 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var MsgValue;
 var Msg;
-var Username=localStorage.getItem("UserName");
+var Username;
 var room_name;
 var message;
 var like;
 var MsgToDisplay;
+Username=localStorage.getItem("UserName")
 console.log("Username="+Username);  
 function logout(){
     window.location="login.html"
