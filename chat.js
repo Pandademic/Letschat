@@ -9,7 +9,7 @@ var firebaseConfig = {
   };
   // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-var MsgValue;
+getData();
 var Msg;
 var Username;
 var room_name;
@@ -18,50 +18,74 @@ var like;
 var MsgToDisplay;
 Username=localStorage.getItem("UserName");
 console.log("Username="+Username);  
-function logout(){
-    window.location="login.html";
-}
+room_name=localStorage.getItem("roomName");
+console.log("rooomName:",room_name);
+if(room_name==null){
+   console.error("Room Name cannot be null");
+} 
 function setItems(){
-    console.log("started.....")
+    console.log("started.....");
     room_name=localStorage.getItem("roomName=");
     console.log(room_name);
-    document.getElementById("chatroomName").innerHTML="Welcome to "+roomName;
-    
+    document.getElementById("chatroomName").innerHTML="Welcome to "+roomName;    
 }
 
 function logout(){
     localStorage.removeItem("UserName");
     window.location="login.html";
 }
-function send(){
-    MsgValue=document.getElementById("msgVal").value;
-    console.log("MSGValue="+MsgValue);
-    Msg= Username+" says :"+MsgValue;
-    console.log(Msg);
-    firebase.database().ref(room_name).push({
-        message:Msg,
-        like:0
-   });
-   document.getElementById("msgVal").value="";
+
+
+function getData() 
+{ 
+    console.log("Get data started");
+    firebase.database().ref("/"+room_name).on('value', function(snapshot) 
+    { 
+        document.getElementById("chat").innerHTML = ""; 
+        snapshot.forEach(function(childSnapshot) 
+        {
+            childKey  = childSnapshot.key; 
+            childData = childSnapshot.val(); 
+            if(childKey != "purpose") 
+            {
+                firebase_message_id = childKey;
+                message_data = childData;
+    
+                console.log(firebase_message_id);
+                console.log(message_data);
+                name = message_data['name'];
+                message = message_data['message'];
+                like = message_data['like'];
+                name_with_tag = "<h4> "+ name +"<img class='user_tick' src='tick.png'></h4>";
+                message_with_tag = "<h4 class='message_h4'>" + message + "</h4>";
+                like_button ="<button class='btn btn-warning' id="+firebase_message_id+" value="+like+" onclick='updateLike(this.id)'>";
+                span_with_tag = "<span class='glyphicon glyphicon-thumbs-up'>Like: "+ like +"</span></button><hr>";
+                row = name_with_tag + message_with_tag +like_button + span_with_tag;
+                document.getElementById("chat").innerHTML += row;
+            }
+        });  
+    }); 
 }
-function getData() { firebase.database().ref("/"+room_name).on('value', function(snapshot) { document.getElementById("chat").innerHTML = ""; snapshot.forEach(function(childSnapshot) { childKey  = childSnapshot.key; childData = childSnapshot.val(); if(childKey != "purpose") {
-    firebase_message_id = childKey;
-    message_data = childData;
-    console.log(firebase_message_id);
-    console.log(message_data);
-    message = message_data['message'];
-    like = message_data['like'];
-    console.log(message);
-    console.log(like);
-    MsgToDisplay="<h4>"+Msg+"</h4>"
-    //name_with_tag = "<h4> "+ name +"<img class='user_tick' src='tick.png'></h4>";
-    //message_with_tag = "<h4 class='message_h4'>" + message + "</h4>";
-    //like_button ="<button class='btn btn-warning' id="+firebase_message_id+" value="+like+" onclick='updateLike(this.id)'>";
-    //span_with_tag = "<span class='glyphicon glyphicon-thumbs-up'>Like: "+ like +"</span></button><hr>";  
-   document.getElementById("chat").innerHTML += MsgToDisplay;
-//End code
- } });  }); }
-getData(); 
-//toDO:check in code
+function getMessage()
+{
+    console.log("gettinng messages");
+    console.error("YOU WANT THIS ERROR");
+    Msg=document.getElementById("msgVal").value;
+    console.log("Msg");
+
+}
+
+function send()
+{
+    getData();
+    getMessage();
+    firebase.database().ref("/"+room_name).push( {
+        name:Username,
+        message:Msg,
+        like:0,
+        
+        });
+    getData()
+}
 //FIXME: GETDATA
 //FIXME:WHY THE HECK DOES IT NOT PUT THE MESSAGE IN THE LISTING DIRECTORY OF THE ROOM_NAME IN DATAASE?IT INSTEAD PUTS IN AS A NEW DIRECTORY COSNULE FUNC SEND
