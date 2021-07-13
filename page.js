@@ -31,15 +31,6 @@ function redirectToRoomName(){
 });
    window.location="chatPage.html";
 }
-/*function addRoom(){
-   var room_name=document.getElementById("roomname").value;
-   firebase.database().ref("/").child(room_name).update({
-         purpose:"adding room name"
-   });
-   localStorage.setItem("room_name",room_name);
-   window.location="chatPage.html";
-}
-*/
 function getData() {firebase.database().ref("/").on('value', function(snapshot) {
    document.getElementById("list").innerHTML = "";snapshot.forEach(function(childSnapshot) {childKey  = childSnapshot.key;
 var Room_names = childKey;
@@ -51,14 +42,3 @@ document.getElementById("list").innerHTML+=row;
 //End code
 });});}
 getData();
-/*function redirectToRoomName(name){
-console.log(name);
-localStorage.setItem("room_name",name);
-window.localStorage="chatPage.html";
-}
-function logOut(){
-localStorage.removeItem("UserName");
-localStorage.removeItem("room_name");
-window.location="login.html";
-}
-*/

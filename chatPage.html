@@ -1,6 +1,7 @@
 <html>
     <head>
-        <link rel="stylesheet"href="style.css">
+        <title>Chat on letschat</title>
+        <link rel="stylesheet"href="css/style.css">
         <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
     </head>
@@ -8,17 +9,18 @@
        <div>
         <center>
         
-        <span>
+        <span class="span">
             <h2 id="chatroomName"onload="setItems()">#welcome to a room,</h2>
             <br>
             <button id="logout"onclick="logout()">Logout</button>
         </span>
         <hr>   
-        <div id="chat">
-
-           </div>
+        <div id="chat"></div>
            <br>
            <span>
+               <br>
+               <br>
+               <br>
            <input class="text"placeholder="message"type="text"id="msgVal">
            <button onclick="send()">Send</button>
         </span>
