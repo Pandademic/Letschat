@@ -1,0 +1,30 @@
+body{
+    background-color: blanchedalmond;
+    color:#fff;
+}
+.login{
+    color: gray;
+    border-radius: 20px;
+    border-width:.5px;
+    
+}
+#chat{
+    color: black;
+    background-color: antiquewhite;
+    height: 500;
+    width: 500;
+}
+.spacer{
+    width: 500;
+}
+#logout{
+    color: #fff;
+    background-color: red;
+}
+.input{
+    position: absolute;
+    bottom: 0;
+}
+span{
+    position: relative;
+}
